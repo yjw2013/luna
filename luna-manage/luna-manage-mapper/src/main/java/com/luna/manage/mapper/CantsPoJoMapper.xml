@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luna.manage.mapper.CantsPoJoMapper">
+  <resultMap id="BaseResultMap" type="com.luna.manage.pojo.CantsPoJo">
+    <id column="cant_code" jdbcType="VARCHAR" property="cantCode" />
+    <result column="cant_name" jdbcType="VARCHAR" property="cantName" />
+    <result column="short_name" jdbcType="VARCHAR" property="shortName" />
+    <result column="cant_type" jdbcType="VARCHAR" property="cantType" />
+    <result column="super_code" jdbcType="VARCHAR" property="superCode" />
+    <result column="country_code" jdbcType="VARCHAR" property="countryCode" />
+    <result column="cant_note" jdbcType="VARCHAR" property="cantNote" />
+    <result column="in_use" jdbcType="CHAR" property="inUse" />
+    <result column="f_uscode" jdbcType="VARCHAR" property="fUscode" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    cant_code, cant_name, short_name, cant_type, super_code, country_code, cant_note, 
+    in_use, f_uscode
+  </sql>
+  <select id="selectByExample" parameterType="com.luna.manage.pojo.CantsPoJoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_luna_ea_cants
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_luna_ea_cants
+    where cant_code = #{cantCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_luna_ea_cants
+    where cant_code = #{cantCode,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.luna.manage.pojo.CantsPoJoExample">
+    delete from tb_luna_ea_cants
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.luna.manage.pojo.CantsPoJo">
+    insert into tb_luna_ea_cants (cant_code, cant_name, short_name, 
+      cant_type, super_code, country_code, 
+      cant_note, in_use, f_uscode
+      )
+    values (#{cantCode,jdbcType=VARCHAR}, #{cantName,jdbcType=VARCHAR}, #{shortName,jdbcType=VARCHAR}, 
+      #{cantType,jdbcType=VARCHAR}, #{superCode,jdbcType=VARCHAR}, #{countryCode,jdbcType=VARCHAR}, 
+      #{cantNote,jdbcType=VARCHAR}, #{inUse,jdbcType=CHAR}, #{fUscode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.luna.manage.pojo.CantsPoJo">
+    insert into tb_luna_ea_cants
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cantCode != null">
+        cant_code,
+      </if>
+      <if test="cantName != null">
+        cant_name,
+      </if>
+      <if test="shortName != null">
+        short_name,
+      </if>
+      <if test="cantType != null">
+        cant_type,
+      </if>
+      <if test="superCode != null">
+        super_code,
+      </if>
+      <if test="countryCode != null">
+        country_code,
+      </if>
+      <if test="cantNote != null">
+        cant_note,
+      </if>
+      <if test="inUse != null">
+        in_use,
+      </if>
+      <if test="fUscode != null">
+        f_uscode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cantCode != null">
+        #{cantCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cantName != null">
+        #{cantName,jdbcType=VARCHAR},
+      </if>
+      <if test="shortName != null">
+        #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="cantType != null">
+        #{cantType,jdbcType=VARCHAR},
+      </if>
+      <if test="superCode != null">
+        #{superCode,jdbcType=VARCHAR},
+      </if>
+      <if test="countryCode != null">
+        #{countryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cantNote != null">
+        #{cantNote,jdbcType=VARCHAR},
+      </if>
+      <if test="inUse != null">
+        #{inUse,jdbcType=CHAR},
+      </if>
+      <if test="fUscode != null">
+        #{fUscode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.luna.manage.pojo.CantsPoJoExample" resultType="java.lang.Long">
+    select count(*) from tb_luna_ea_cants
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_luna_ea_cants
+    <set>
+      <if test="record.cantCode != null">
+        cant_code = #{record.cantCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cantName != null">
+        cant_name = #{record.cantName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shortName != null">
+        short_name = #{record.shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cantType != null">
+        cant_type = #{record.cantType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.superCode != null">
+        super_code = #{record.superCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.countryCode != null">
+        country_code = #{record.countryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cantNote != null">
+        cant_note = #{record.cantNote,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inUse != null">
+        in_use = #{record.inUse,jdbcType=CHAR},
+      </if>
+      <if test="record.fUscode != null">
+        f_uscode = #{record.fUscode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_luna_ea_cants
+    set cant_code = #{record.cantCode,jdbcType=VARCHAR},
+      cant_name = #{record.cantName,jdbcType=VARCHAR},
+      short_name = #{record.shortName,jdbcType=VARCHAR},
+      cant_type = #{record.cantType,jdbcType=VARCHAR},
+      super_code = #{record.superCode,jdbcType=VARCHAR},
+      country_code = #{record.countryCode,jdbcType=VARCHAR},
+      cant_note = #{record.cantNote,jdbcType=VARCHAR},
+      in_use = #{record.inUse,jdbcType=CHAR},
+      f_uscode = #{record.fUscode,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.luna.manage.pojo.CantsPoJo">
+    update tb_luna_ea_cants
+    <set>
+      <if test="cantName != null">
+        cant_name = #{cantName,jdbcType=VARCHAR},
+      </if>
+      <if test="shortName != null">
+        short_name = #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="cantType != null">
+        cant_type = #{cantType,jdbcType=VARCHAR},
+      </if>
+      <if test="superCode != null">
+        super_code = #{superCode,jdbcType=VARCHAR},
+      </if>
+      <if test="countryCode != null">
+        country_code = #{countryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cantNote != null">
+        cant_note = #{cantNote,jdbcType=VARCHAR},
+      </if>
+      <if test="inUse != null">
+        in_use = #{inUse,jdbcType=CHAR},
+      </if>
+      <if test="fUscode != null">
+        f_uscode = #{fUscode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cant_code = #{cantCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.luna.manage.pojo.CantsPoJo">
+    update tb_luna_ea_cants
+    set cant_name = #{cantName,jdbcType=VARCHAR},
+      short_name = #{shortName,jdbcType=VARCHAR},
+      cant_type = #{cantType,jdbcType=VARCHAR},
+      super_code = #{superCode,jdbcType=VARCHAR},
+      country_code = #{countryCode,jdbcType=VARCHAR},
+      cant_note = #{cantNote,jdbcType=VARCHAR},
+      in_use = #{inUse,jdbcType=CHAR},
+      f_uscode = #{fUscode,jdbcType=VARCHAR}
+    where cant_code = #{cantCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

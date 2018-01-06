@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1515225523063_1" label="luna-manage" name="luna-manage">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/luna-manage" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/luna-manage-pojo" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/luna-manage-mapper" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/luna-manage-service" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/luna-manage-web" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1515225371435_0" label="Window Working Set" name="Aggregate for window 1515225371435"/>
+</workingSetManager>
