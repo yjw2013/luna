@@ -1,5 +1,0 @@
-#Tomcat publish data
-#Sat Jan 06 16:09:24 GMT+08:00 2018
-org.eclipse.jst.j2ee.server\:luna-manage-pojo=WEB-INF/lib/luna-manage-pojo-1.0.0-SNAPSHOT.jar
-org.eclipse.jst.j2ee.server\:luna-manage-service=WEB-INF/lib/luna-manage-service-1.0.0-SNAPSHOT.jar
-org.eclipse.jst.j2ee.server\:luna-manage-mapper=WEB-INF/lib/luna-manage-mapper-1.0.0-SNAPSHOT.jar

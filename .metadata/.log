@@ -341,3 +341,6 @@ org.eclipse.ui.PartInitException: Unable to open editor, unknown editor ID: 'org
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2018-01-06 16:10:50.492
 !MESSAGE The artifact org.apache.commons:commons-io:jar:1.3.2 has been relocated to commons-io:commons-io:jar:1.3.2
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-01-06 19:33:26.896
+!MESSAGE The artifact org.apache.commons:commons-io:jar:1.3.2 has been relocated to commons-io:commons-io:jar:1.3.2
